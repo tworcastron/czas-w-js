@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zegar JS</title>
+</head>
+<body>
+  <p>Dzisiaj jest 
+    <span class="day"></span> 
+    <span class="month"></span> 
+    <span class="year"></span> 
+  </p>
+  <p>
+    <span class="hours"></span> :
+    <span class="minutes"></span> :
+    <span class="seconds"></span>
+  </p>
+
+  <script>
+    const day = document.querySelector('.day')
+    const month = document.querySelector('.month')
+    const year = document.querySelector('.year')
+    const hours = document.querySelector('.hours')
+    const minutes = document.querySelector('.minutes')
+    const seconds = document.querySelector('.seconds')
+
+    const months = [
+      'styczeń',
+      'luty',
+      'marzec',
+      'kwiecień',
+      'maj',
+      'czerwiec',
+      'lipiec',
+      'sierpień',
+      'wrzesień',
+      'październik',
+      'listopad',
+      'grudzień'
+    ]
+
+    const runClock = () => {
+      const now = new Date()
+      day.innerText = now.getDate()
+      month.innerText = months[now.getMonth()]
+      year.innerText = now.getFullYear()
+      hours.innerText = now.getHours()
+      minutes.innerText = now.getMinutes()
+      seconds.innerText = now.getSeconds()
+    }
+    runClock()
+    setInterval(runClock, 1000)
+
+  </script>
+</body>
+</html>

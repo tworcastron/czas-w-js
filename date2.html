@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Odliczanie JS</title>
+</head>
+<body>
+  <p>Do godziny <span class="time"></span> pozostało</p>
+  <p>
+    <span class="hours"></span> godz
+    <span class="minutes"></span> min
+    <span class="seconds"></span> sec
+  </p>
+
+  <script>
+    const hours = document.querySelector('.hours')
+    const minutes = document.querySelector('.minutes')
+    const seconds = document.querySelector('.seconds')
+    const time = document.querySelector('.time')
+
+    const t = new Date('2021-10-14T19:30')
+    time.innerHTML = `${t.getHours()}:${t.getMinutes()}`
+    
+    const runCounter = () => {
+      const now = new Date()
+      hours.innerText = t.getHours() - now.getHours()
+      minutes.innerText = t.getMinutes() - now.getMinutes()
+      seconds.innerText = 60 - now.getSeconds()
+    }
+    runCounter()
+    setInterval(runCounter, 1000)
+
+  </script>
+</body>
+</html>
